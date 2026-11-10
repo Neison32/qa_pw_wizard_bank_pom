@@ -3,9 +3,9 @@ import { faker } from '@faker-js/faker';
 import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
 import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
 
-const firstName = faker.person.firstName();
-const lastName = faker.person.lastName();
-const postalCode = faker.location.zipCode();
+let firstName;
+let lastName;
+let postalCode;
 
 test.beforeEach(async ({ page }) => {
   /* 
@@ -16,6 +16,9 @@ test.beforeEach(async ({ page }) => {
   4. Fill the Postal Code.
   5. Click [Add Customer].
   */
+  firstName = faker.person.firstName();
+  lastName = faker.person.lastName();
+  postalCode = faker.location.zipCode();
 
   const addCustomerPage = new AddCustomerPage(page);
   await addCustomerPage.open();

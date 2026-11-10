@@ -5,9 +5,9 @@ import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
 import { BankManagerMainPage } from '../../../src/pages/manager/BankManagerMainPage';
 
-const firstName = faker.person.firstName();
-const lastName = faker.person.lastName();
-const postalCode = faker.location.zipCode();
+let firstName;
+let lastName;
+let postalCode;
 
 test.beforeEach(async ({ page }) => {
   /* 
@@ -19,6 +19,9 @@ test.beforeEach(async ({ page }) => {
   5. Click [Add Customer].
   6. Reload the page (This is a simplified step to close the popup).
   */
+  firstName = faker.person.firstName();
+  lastName = faker.person.lastName();
+  postalCode = faker.location.zipCode();
 
   const addCustomerPage = new AddCustomerPage(page);
   await addCustomerPage.open();
